@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../../View/Doctor/CSS/DoctorHome.css">
 </head>
 <div class = "mainMenu">
+	<a class = "link" href = "../../Home.html" style="text-decoration:none;"><font size="4px"><font color="lightblue">..... </font>Home</font></a>
 	<a class = "link" href = "../Patient/patient Home.php" style="text-decoration:none;"> <font size="4px">Patient Home<font></a><tr>
  </div>
 	<html>

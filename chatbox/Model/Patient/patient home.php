@@ -9,6 +9,7 @@
 	<body background = "../../View/Patient/view/images/patient.jpg"/>
 	
 <div class = "mainMenu">
+	<a class = "link" href = "../../Home.html" style="text-decoration:none;"><font size="4px"><font color="lightblue">..... </font>Home</font></a>
 	<a class = "link" href = "../Doctor/Doctor Home.php" style="text-decoration:none;"> <font size="4px">Doctor Home<font></a><tr>
  </div>
  

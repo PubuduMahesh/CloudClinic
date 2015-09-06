@@ -1,0 +1,32 @@
+
+div.topic{
+	position:relative;
+	left:340px;
+	border-style:solid;
+	border-radius:10px;
+	top:0px;
+	height:90px;
+	width:400px;
+	padding:10px;
+	border-width:10px;
+}
+div.slideshow {
+    position:relative;
+	top:100px;
+	left:270px;
+	border-style:solid;
+	border-radius:20px;
+	width:555px;
+	padding:10px;
+}
+div.menu{
+	position:relative;
+	top:50px;
+	left:100px;
+	border-style:solid;
+	border-radius:20px;
+	width:800px;
+	height:30px;
+	padding:10px;
+	background-color:lightblue;
+}
