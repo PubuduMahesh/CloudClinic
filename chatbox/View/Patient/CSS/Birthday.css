@@ -1,0 +1,36 @@
+
+*::-moz-placeholder, *:-moz-placeholder {
+    color: #9197a3;
+}
+._5p3y[dir="ltr"], ._5p3y[dir="ltr"] button, ._5p3y[dir="ltr"] input, ._5p3y[dir="ltr"] label, ._5p3y[dir="ltr"] select, ._5p3y[dir="ltr"] td, ._5p3y[dir="ltr"] textarea, ._5p3y[dir="ltr"] .uiMentionsInput .highlighter, ._5p3y[dir="ltr"] .uiButtonText, ._5p3y[dir="ltr"] .uiButton input, ._5p3y[dir="ltr"] .uiLinkButton input, ._5p3y[dir="ltr"] button.as_link, ._5p3y[dir="ltr"] .fbChatSidebar, ._5p3y[dir="ltr"] .fbDock, ._5p3y[dir="ltr"] .fbFeedTicker .fbFeedTickerStory .tickerFeedMessage, ._5p3y[dir="ltr"] .fbFeedTicker .fbFeedTickerStory div.tickerFeedMessage h5, ._5p3y[dir="ltr"] .fbFeedTicker .fbFeedTickerStory div.tickerFeedMessage h6, ._5p3y[dir="ltr"] .tickerDialogContent .uiStream .uiStreamMessage, ._5p3y[dir="ltr"] .tickerDialogContent .uiStream .text_exposed_link, ._5p3y[dir="ltr"] .uiTooltipX .tooltipContent, ._5p3y[dir="ltr"] a[role="button"], ._5p3y[dir="rtl"] [dir="ltr"] {
+    font-family: helvetica,arial,sans-serif;
+}
+._5p3y, ._5p3y button, ._5p3y input, ._5p3y label, ._5p3y select, ._5p3y td, ._5p3y textarea, ._5p3y .uiMentionsInput .highlighter, ._5p3y .uiButtonText, ._5p3y .uiButton input, ._5p3y .uiLinkButton input, ._5p3y button.as_link {
+    font-size: 12px;
+}
+._58mq select {
+    font-size: 13px;
+}
+body, button, input, label, select, td, textarea {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+}
+._5p3y[dir="ltr"], ._5p3y[dir="ltr"] button, ._5p3y[dir="ltr"] input, ._5p3y[dir="ltr"] label, ._5p3y[dir="ltr"] select, ._5p3y[dir="ltr"] td, ._5p3y[dir="ltr"] textarea, ._5p3y[dir="ltr"] .uiMentionsInput .highlighter, ._5p3y[dir="ltr"] .uiButtonText, ._5p3y[dir="ltr"] .uiButton input, ._5p3y[dir="ltr"] .uiLinkButton input, ._5p3y[dir="ltr"] button.as_link, ._5p3y[dir="ltr"] .fbChatSidebar, ._5p3y[dir="ltr"] .fbDock, ._5p3y[dir="ltr"] .fbFeedTicker .fbFeedTickerStory .tickerFeedMessage, ._5p3y[dir="ltr"] .fbFeedTicker .fbFeedTickerStory div.tickerFeedMessage h5, ._5p3y[dir="ltr"] .fbFeedTicker .fbFeedTickerStory div.tickerFeedMessage h6, ._5p3y[dir="ltr"] .tickerDialogContent .uiStream .uiStreamMessage, ._5p3y[dir="ltr"] .tickerDialogContent .uiStream .text_exposed_link, ._5p3y[dir="ltr"] .uiTooltipX .tooltipContent, ._5p3y[dir="ltr"] a[role="button"], ._5p3y[dir="rtl"] [dir="ltr"] {
+    font-family: helvetica,arial,sans-serif;
+}
+._5p3y {
+    line-height: 1.34;
+}
+._5p3y, ._5p3y button, ._5p3y input, ._5p3y label, ._5p3y select, ._5p3y td, ._5p3y textarea, ._5p3y .uiMentionsInput .highlighter, ._5p3y .uiButtonText, ._5p3y .uiButton input, ._5p3y .uiLinkButton input, ._5p3y button.as_link {
+    font-size: 12px;
+}
+body, button, input, label, select, td, textarea {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+}
+body {
+    color: #141823;
+    direction: ltr;
+    line-height: 1.28;
+    text-align: left;
+}

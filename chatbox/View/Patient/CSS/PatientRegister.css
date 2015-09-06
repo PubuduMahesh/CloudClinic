@@ -1,0 +1,33 @@
+div.relative {
+    position: relative;
+    left:600px;
+	top:0px;
+    width: 300px;
+}
+div.relative1{
+	position:relative;
+	left:1opx;
+	border-style:solid;
+	border-radius:20px;
+	padding:10px;
+	background-color:lightgreen;
+	width:500px;	
+
+}
+::-webkit-input-placeholder {
+   font-size: 12pt;
+   text-align: center;  
+   color: black;
+}
+div.mainMenu
+{
+	position:relative;
+	left:1100px;
+	border-style:solid;
+	width:120px;
+	padding:20px;
+	
+	border-radius:20px;
+	background-color:lightgreen;	
+
+}

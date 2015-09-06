@@ -1,0 +1,105 @@
+div.relative {	
+    position:absolute;
+	border-style:solid;
+	border-radius:20px;
+	left:0px;
+	border-width:10px;
+	border-color:yellow;
+	
+}	
+div.chatbox{
+		position:absolute;
+		top:110px;
+		left:600px;
+		border-style:solid;
+		border-color:black;
+		background-color:lightgreen;
+		border-radius:10px;
+	
+}
+div.menu{	
+		right:0px;
+		border-style:double;
+		background:lightblue;
+		border-width:1px;	
+}
+div.menu .patientName{
+		position:absolute;
+		top:70px;
+		left:10px;
+}
+div.menu .searchBar{
+		position:absolute;
+		top:70px;
+		left:300px;
+		width:300px;
+}
+div.menu .searchButton{
+		position:absolute;
+		top:70px;
+		left:600px;
+}
+div.menu .link{
+		position:link;
+		top:60px;
+}
+div.report{
+		position:absolute;
+		top:340px;
+		border-style:solid;
+		border-radius:10px;
+		padding:20px;
+		border-color:black;
+		background-color:yellow;
+		width:120px;
+		height:140px;
+}
+div.report .reportChoose{
+		position:absolute;
+		left:20px;
+		color: transparent;
+}
+#reportSubmit {
+    width: 6.7em;  height: 1.5em;
+}
+#fileToUpload{
+	width: 9em;  height: 1.5em;
+}
+div.report .viewReport
+{
+	position:relative;
+	background-color:lightgreen;
+	border-style:solid;
+	border-color:black;
+}
+div.Prescription{
+	position:relative;
+	top:200px;
+	border-style:solid;
+	border-radius:20px;
+	border-color:black;
+	width:160px;
+	background:yellow;
+
+}
+div.logingTable{
+	position:relative;
+	left:550px;
+    top:200px;
+	border-style:solid;
+	background-color:lightgreen;
+	width:245px;
+	height:107px;
+	border-radius:20px;
+}
+div.logingTable .loginButton{
+	border-radius:60px;
+	color:black;
+	left:670px;
+}
+div.mainMenu .link{
+	border-style:solid;
+	border-radius:20px;
+	background-color:lightgreen;
+	
+}

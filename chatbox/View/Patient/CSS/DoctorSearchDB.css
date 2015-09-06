@@ -1,0 +1,33 @@
+#product_table
+			{
+				border:1px solid gray;
+				border-collapse:collapse;
+			}
+			#product_table 	td,th		
+			{
+				border:1px solid gray;
+			}
+			.head_table
+			{
+				background-color:black ;
+				color:white;
+			}
+			.row_even
+			{
+				background-color:yellow;
+				color:black;
+			}
+			.row_odd
+			{
+				background-color:lightblue;
+				color:black;
+			}
+			div.menu
+			{
+				right:10px;
+				border-radius:10px;
+				border-style:double;
+				background:lightblue;
+				border-width:1px;
+		
+			}

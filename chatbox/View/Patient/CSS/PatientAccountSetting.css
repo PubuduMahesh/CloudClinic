@@ -1,0 +1,45 @@
+div.relative {
+    position: relative;
+	border-style:solid;
+	border-radius:20px;
+	padding:10px;
+	width:160px;
+	height:170px;
+	background-color:lightgreen;
+}		
+div.relative3 {
+    position:relative;
+	left:500px;	
+	border-style:solid;
+	top:0px;
+	border-radius: 10px;
+	width: 300px;
+    height: 600px;  
+	background-color:lightgreen;
+	padding:10px;
+    
+	
+    
+}	
+div.relative1{
+	position:relative;
+	top:0px;
+	width:190px;
+	border-style:solid;
+}
+div.relative1  .choose{
+	top:370px;
+	color:transparent;
+}
+div.menu{
+		right:0px;
+		border-style:double;
+		background:lightblue;
+		border-width:1px;
+		
+}
+::-webkit-input-placeholder {
+   font-size: 12pt;
+   text-align: center;  
+   color: black;
+}
