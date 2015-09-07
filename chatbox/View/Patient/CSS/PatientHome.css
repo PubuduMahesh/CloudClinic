@@ -51,7 +51,7 @@ div.report{
 		padding:20px;
 		border-color:black;
 		background-color:yellow;
-		width:120px;
+		width:130px;
 		height:140px;
 }
 div.report .reportChoose{
@@ -102,4 +102,14 @@ div.mainMenu .link{
 	border-radius:20px;
 	background-color:lightgreen;
 	
+}
+div.emergency
+{
+	position:relative;
+	top:420px;
+	border-style:solid;
+	border-radius:10px;
+	padding:5px;
+	width:160px;
+	background-color:yellow;
 }

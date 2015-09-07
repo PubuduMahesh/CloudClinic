@@ -14,12 +14,12 @@
 </div>
 <div align = "middle" class = "relative1">
 	<form name = "PatientRegistrationForm" action = "patient register DB.php" method = "POST"><!--where 'register.php' must change according to the registration type-->
-		<input class ="input" type = "text" name = "firstName" id="Id_firstName" placeholder = "Firstname" /><br><br>
-		<input class= "input" type = "text" name = "secondName" id ="Id_secondName" placeholder = "Secnond Name"/><br><br>
-		<input class= "input" type = "text" name = "surname" id = "Id_surName" placeholder = "Surname"/><br><br>
-		<input class= "input" type = "text" name = "NIC" id = "Id_NIC" placeholder = "NIC" maxlength="10"/><br><br>
-		<input class= "input" type = "password" name = "password" id = "Id_password" placeholder = "Password"/><br><br> 
-		<input class= "input" type = "password" name = "rePassword" id = "Id_rePassword" placeholder = "Re Enter password" onkeyup="equal(); return false;"/><br><br>
+		<input class ="input" type = "text" name = "firstName" id="Id_firstName" placeholder = "Firstname" required /><br><br>
+		<input class= "input" type = "text" name = "secondName" id ="Id_secondName" placeholder = "Secnond Name"required /><br><br>
+		<input class= "input" type = "text" name = "surname" id = "Id_surName" placeholder = "Surname"required /><br><br>
+		<input class= "input" type = "text" name = "NIC" id = "Id_NIC" placeholder = "NIC" maxlength="10"required /><br><br>
+		<input class= "input" type = "password" name = "password" id = "Id_password" placeholder = "Password"required /><br><br> 
+		<input class= "input" type = "password" name = "rePassword" id = "Id_rePassword" placeholder = "Re Enter password" onkeyup="equal(); return false;"required /><br><br>
 		<input class= "input" type = "text" name = "email" id = "Id_email" placeholder = "Email"/><br><br><!--want to check weather a valid or invalid Email address-->
 		<span id="confirmMessage" class="confirmMessage"></span>
 		

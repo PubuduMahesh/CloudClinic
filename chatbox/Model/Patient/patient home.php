@@ -96,6 +96,31 @@
 <div class = "Prescription"title="you can view doctor prescription here" >
 	<a href = "view Prescription DB.php" style="text-decoration:none;"> <font color = "black" size="3px"> Prescription <font></a>
 </div>
+<!-- emergency doctor contact-->
+<div class = "emergency">
+	<html>
+		<head>
+			<body>
+				<form action = "patient home.php" method = "post" title ="You can emergency contact Doctor here">	
+					Number:<br>
+					<input type = "text" size = "2"name = "TPext" id = "Id_TPext" placeholder= "+94"/> - 
+					<input type = "text" size = "10" name = "TP" id = "Id_TP" placeholder = "Telephone Number"/><br><br>
+				
+					Sender:<br>
+					<input type = "text" name = "from" placeholder= "yourName"/> <br> <br>				
+					Message:<br>
+					<textarea name = "message" Placeholder= "message"></textarea>
+					<br><br>
+					<input type= "hidden" name= "submitted" value = "true"/>
+					<input type = "submit" name = "submit" value = "send"/>
+				</form>
+			</body>
+		</head>
+	</html>
+</div>
+
+
+
 
 <!-- -->
 <link rel="stylesheet" type="text/css" href="chat.css"/>

@@ -44,7 +44,7 @@
 		
 	}
 	if($address != null){	//update patient table if address is not null in the textbox
-		$j = insertAddress($j,$telephoneNumber,$NIC);
+		$j = insertAddress($j,$address,$NIC);
 		
 	}
 	if($sex != null)
