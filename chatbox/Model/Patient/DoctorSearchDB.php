@@ -67,22 +67,13 @@ function get_table($patientNIC)
 		<script type="text/javascript">
 			function FolloButton(i,patientNIC)
 			{
-				
-				
 				var td = document.getElementById(i);	<!--get td value-->
 				var doctorNIC = td.innerText;
-				
-				
 				$.getJSON('patientFollowDoctor.php',{key:doctorNIC,nextkey:patientNIC},callBackFunction);
-				
-				
-				
-								
-
-				 	
 			}
 			function callBackFunction(joson)
 			{
+				alert("sdfjlksdjflksdf");
 				alert(joson[0]);
 			}
 		</script>
