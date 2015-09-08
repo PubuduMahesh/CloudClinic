@@ -14,21 +14,24 @@ $_SESSION['FirstName'];
 <tr><tr><tr><font size = "8" color= "purple" align = "middle" class="header" > <tr><tr><B> Doctor Account<B> </font><br><font size=6 color = "purple">
 <div class= "relative" id="thumbwrap">
 <?php
+	include_once('../../Control/ConnectionDB.php');
 	$photo = $_SESSION['DoctorPhoto'];
-	if($photo == null){
-		?>
-			<img class = "thumb" src= "../../View/Doctor/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:200px;height:200px" align = "left"  />
-		<?php
-	}
-	else{
-			$photo = $_SESSION['DoctorPhoto'];
-			
-			echo '<img align="left" src="data:image/jpeg;base64,'.base64_encode( $photo ).'"/>'; 
+	$NIC 	= $_SESSION['NIC'];
+	if($photo != null)
+	{
+		$result = mysql_query("select DoctorPhoto from doctor where NIC = '$NIC';");
+		while ($row = mysql_fetch_array($result))
+		{
+			echo'<img height="160" width="160" src = "data:image;base64,'.$row['DoctorPhoto'].'">';
 		}
-		
-		
-		
-?>
+	}
+	else
+	{
+		?>
+		<img src= "../../View/Doctor/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:160px;height:160px"/> <br><br>
+		<?php
+	}	 
+  ?>
  </div>
  <!-- direct button to home, account setting pages-->
 
@@ -41,7 +44,12 @@ $_SESSION['FirstName'];
 </head>
 <link rel="stylesheet" tye="text/css" href="Doctor Account setting.css"/>
 <div class = "relative3">
-	<label><font size = "5">Select Photo: </font></label><input class= "choose" type="file" name="image" size = "7"/><br>
+	<form action= "Doctor Account Setting DB.php" method="post" enctype = "multipart/form-data">
+	<br/>
+		<input type = "file" name = "image"/>
+	<br/>
+		<input type = "submit" name = "sumit" value="upload"/>			
+	</form>	
 </div>
 <div class = "relative2">
 	<form name = "Doctor Account" action = "Doctor Account Setting DB.php" method = "post"><!--where 'register.php' must change according to the -->

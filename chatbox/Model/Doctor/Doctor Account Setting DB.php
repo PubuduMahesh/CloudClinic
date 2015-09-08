@@ -10,13 +10,143 @@
 	$status 		 		= $_POST['status'];
 	$workingExperience  	= $_POST['workingExperience'];
 	$DoctorPhoto 			= $_POST['image'];
-	$Article 				= $_POST['article'];
 	include_once('../../Control/ConnectionDB.php');
 	$j=0;
 	
-	if($Article != null){	//update telephone_number table if it is not empty
-		$j = insertArticle($j,$Article,$NIC);
+	//..................Article submit
+	if(isset($_POST['submit']))
+	{
+		$NIC = $_SESSION['NIC'];
+		if(getimagesize($_FILES['article']['tmp_name'])==FALSE)
+		{
+			echo "please selct an image.";
+		}
+		else
+		{
+			$Article = addslashes($_FILES['article']['tmp_name']);
+			$name = addslashes($_FILES['article']['name']);
+			$Article = file_get_contents($Article);
+			$Article = base64_encode($Article);
+			$type = "article";
+			saveArticle($name,$Article,$NIC,$type);	
+		}
+	}
+	//.................
+	if(isset($_POST['sumit']))
+	{
+		$NIC = $_SESSION['NIC'];
+		if(getimagesize($_FILES['image']['tmp_name'])==FALSE)
+		{
+			echo "please selct an image.";
+		}
+		else
+		{
+			$image = addslashes($_FILES['image']['tmp_name']);
+			$name = addslashes($_FILES['image']['name']);
+			echo $image;
+			$image = file_get_contents($image);
+			$image = base64_encode($image);
+			saveimage($name,$image,$NIC,$type);
+					
+		}
+	}		
 		
+		function saveimage($name,$image,$NIC,$type)
+		{
+			$result = mysql_query("UPDATE doctor SET DoctorPhoto = '$image' WHERE NIC = '$NIC';");
+			
+			if($result)
+			{
+				echo "<br/> Image Uploaded";
+			}
+			else
+			{
+				echo "<br/> Image not Uploaded";
+			}
+	
+		}
+
+		function saveArticle($name,$Article,$NIC,$type)
+		{
+			$result = mysql_query("INSERT INTO `cc`.`article` (`ArticleID`,`Photo`,`doctorID`) VALUES (NULL,'$Article','$NIC');");
+			
+			if($result)
+			{
+				echo "<br/> Image Uploaded";
+			}
+			else
+			{
+				echo "<br/> Image not Uploaded";
+			}
+	
+		}		
+	
+	
+	if (!isset($_POST['TP1'])) 
+	{
+		$telephoneNumber = '';
+	} 
+	else 
+	{
+		$telephoneNumber = $_POST['TP1'];
+	}
+	
+	if (!isset($_POST['speciality'])) 
+	{
+		$speciality = '';
+	} 
+	else 
+	{
+		$speciality 	 = $_POST['speciality'];
+	}
+	
+	if (!isset($_POST['address'])) 
+	{
+		$address = '';
+	} 
+	else 
+	{
+		$address = $_POST['address'];
+	}
+	if (!isset($_POST['registrationNumber'])) 
+	{
+		$registrationNumber = '';
+	} 
+	else 
+	{
+		$registrationNumber= $_POST['registrationNumber'];
+	}
+	if (!isset($_POST['graduation'])) 
+	{
+		$graduation = '';
+	} 
+	else 
+	{
+		$graduation = $_POST['graduation'];
+	}
+	if (!isset($_POST['sex'])) 
+	{
+		$sex = '';
+	} 
+	else 
+	{
+		$sex = $_POST['sex'];
+	}
+	if (!isset($_POST['status'])) 
+	{
+		$status = '';
+	} 
+	else 
+	{
+		$status	 = $_POST['status'];;
+	}
+	if (!isset($_POST['workingExperience'])) 
+	{
+		$workingExperience = '';
+	} 
+	else 
+	{
+		$workingExperience	 = $_POST['workingExperience'];;
 	}
 	if($telephoneNumber != null){	//update telephone_number table if it is not empty
 		$j = insertTelephoneNumber($j,$telephoneNumber,$NIC);
@@ -53,13 +183,6 @@
 	if($registrationNumber != null){	//update telephone_number table if it is not empty
 		$j = insertRegistrationNumber($j,$registrationNumber,$NIC);
 		
-	}
-	
-	function insertArticle($j,$Article,$NIC)
-	{
-		$j++;
-		mysql_query("INSERT INTO `cc`.`article` (`ArticleID`,`Photo`,`doctorID`) VALUES (NULL,'$Article','$NIC');");
-		return $j;
 	}
 	function insertTelephoneNumber($j,$telephoneNumber,$NIC)
 	{

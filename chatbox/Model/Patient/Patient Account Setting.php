@@ -24,60 +24,34 @@
  </div>
 <div class= "relative">
 <?php
+	include_once('../../Control/ConnectionDB.php');
 	$photo = $_SESSION['PatientPhoto'];
-	if($photo == null){
+	$NIC 	= $_SESSION['NIC'];
+	if($photo != null)
+	{
+		$result = mysql_query("select PatientPhoto from patient where NIC = '$NIC';");
+		
+			while ($row = mysql_fetch_array($result))
+			$photo = $row['PatientPhoto'];
+			{
+				echo'<img height="160" width="160" src = "data:image;base64,'.$photo.'">';
+			}
+	}
+	else
+	{
 		?>
-			<img src= "../../View/patient/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:160px;height:160px" align = "left"  />
+		<img src= "../../View/Patient/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:160px;height:160px"/> <br><br>
 		<?php
 	}
-	else{
-			$photo = $_SESSION['PatientPhoto'];
-			
-			echo '<img align="left" src="data:image/jpeg;base64,'.base64_encode( $photo ).'"/>'; 
-		}
 ?>
 </div>
 <div class = "relative1">
-	<form method="post" enctype = "multipart/form-data">
+	<form action= "Patient Account Setting DB.php" method="post" enctype = "multipart/form-data">
 	<br/>
 		<input type = "file" name = "image"/>
 	<br/>
 		<input type = "submit" name = "sumit" value="upload"/>		
-	</form>
-	
-	<?php
-			if(isset($_POST['sumit']))
-			{
-				if(getimagesize($_FILES['image']['tmp_name'])==FALSE)
-				{
-					echo "please selct an image.";
-				}
-				else
-				{
-					$image = addslashes($_FILES['image']['tmp_name']);
-					$name = addslashes($_FILES['image']['name']);
-					$image = file_get_contents($image);
-					$image = base64_encode($image);
-					saveimage($name,$image);
-					
-				}
-			}
-			function saveimage($name,$image)
-			{
-				$NIC = $_SESSION['NIC'];
-				$result = mysql_query("insert into patient (`PatientPhoto`) values ('$image') WHERE NIC = '$NIC';");
-				if($result)
-				{
-					echo "<br/> Image Uploaded";
-				}
-				else
-				{
-					echo "<br/> Image not Uploaded";
-				}
-	
-			}
-		?>
-	
+	</form>	
 </div>
 
 <div class = "relative3">

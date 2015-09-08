@@ -40,7 +40,7 @@ function get_table($patientNIC)
 		$table_str.='<tr class="'.$class.'">';	
 		$photo = $product->photo;
 		
-		$table_str.='<td width="30">'.($i++).'</td> <td><img src="data:image/jpeg;base64,'.base64_encode( $photo ).'" /></td>' ;
+		$table_str.='<td width="30">'.($i++).'</td><td><img height="400" width="400" src = "data:image;base64,'.$photo.'"></td>' ;
 		//$table_str.='<td width="30">'.($i++).'</td> <td id="'.($i-1).'">'.$patientNIC.'</td> <td width="60">'.$product->FirstName.'</td> <td>'.$product->Speciality.'</td> <td>'.$product->workingexperience.'</td> <td>'.$product->address.'</td> <td>'.$product->graduation.'</td> <td>'.$product->registrationnumber.'</td> <td><button class="clsActionButton" id="idAddButton" 
 		//onclick="FolloButton('.$i.');">Follow Me</button></td>' ;
 		$table_str.='</tr>';								//horizontal line

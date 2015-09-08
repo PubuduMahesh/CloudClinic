@@ -1,23 +1,124 @@
 <?php
 	session_start();						//start the session to hold the NIC value which is passed from the patient account setting.php page. 
 	$NIC  			 = $_SESSION['NIC'];
-	//get the posted variable value in to the php variable. 
-	$telephoneNumber = $_POST['TP'];
-	$jobhistory 	 = $_POST['job'];
-	$address		 = $_POST['address'];
-	$familyBackground= $_POST['familyBackground'];
-	$status 		 = $_POST['status'];
-	$sex			 = $_POST['sex'];
-	$birthday_year 	 = $_POST['birthday_year'];
-	$birthday_month	 = $_POST['birthday_month'];
-	$birthday_day 	 = $_POST['birthday_day'];
-	$birthday 		 = $birthday_year + $birthday_month + $birthday_month;
+	//get the posted variable value in to the php variable. 	
+	if (!isset($_POST['TP'])) 
+	{
+		$telephoneNumber = '';
+	} 
+	else 
+	{
+		$telephoneNumber = $_POST['TP'];
+	}
+	
+	if (!isset($_POST['job'])) 
+	{
+		$jobhistory = '';
+	} 
+	else 
+	{
+		$jobhistory 	 = $_POST['job'];
+	}
+	
+	if (!isset($_POST['address'])) 
+	{
+		$address = '';
+	} 
+	else 
+	{
+		$address = $_POST['address'];
+	}
+	if (!isset($_POST['familyBackground'])) 
+	{
+		$familyBackground = '';
+	} 
+	else 
+	{
+		$familyBackground= $_POST['familyBackground'];
+	}
+	if (!isset($_POST['status'])) 
+	{
+		$status = '';
+	} 
+	else 
+	{
+		$status = $_POST['status'];
+	}
+	if (!isset($_POST['sex'])) 
+	{
+		$sex = '';
+	} 
+	else 
+	{
+		$sex = $_POST['sex'];
+	}
+	if (!isset($_POST['birthday_month'])) 
+	{
+		$birthday_month = '';
+	} 
+	else 
+	{
+		$birthday_month	 = $_POST['birthday_month'];;
+	}
+	if (!isset($_POST['birthday_day'])) 
+	{
+		$birthday_day = '';
+	} 
+	else 
+	{
+		$birthday_day 	 = $_POST['birthday_day'];
+	}
+	if($birthday_day != null && $birthday_month != null)
+	{
+		$birthday = $birthday_day + $birthday_month ;
+	}
+	else
+	{
+		$birthday = '';
+	}
+	
+	
+	
 	//$report 		 = $_FILES['fileToUpload'];
 	//create the database connection.
 	include_once('../../Control/ConnectionDB.php');
-	if(isset($_POST['sumit']))
-	{
-		if(getimagesize($_FILES['image']['tmp_name'])==FALSE)
+	
+	//...............................
+			if(isset($_POST['submits']))
+			{
+				$NIC = $_SESSION['NIC'];
+				if(getimagesize($_FILES['report']['tmp_name'])==FALSE)
+				{
+					echo "please selct an image.";
+				}
+				else
+				{
+					$Report = addslashes($_FILES['report']['tmp_name']);
+					$name = addslashes($_FILES['report']['name']);
+					$Report = file_get_contents($Report);
+					$Report = base64_encode($Report);
+					saveReport($name,$Report,$NIC);
+					
+				}
+			}
+			function saveReport($name,$Report,$NIC)
+			{
+				
+				$result = mysql_query("INSERT INTO `cc`.`reports` (`ReportID`,`Dates`,`Photo`,`PatientNIC`) VALUES (null,null,'$Report','$NIC'); ");
+			
+				if($result)
+				{
+					echo "<br/> Image Uploaded";
+				}
+				else
+				{
+					echo "<br/> Image not Uploaded";
+				}	
+			}
+			if(isset($_POST['sumit']))
+			{
+				$NIC = $_SESSION['NIC'];
+				if(getimagesize($_FILES['image']['tmp_name'])==FALSE)
 				{
 					echo "please selct an image.";
 				}
@@ -27,15 +128,25 @@
 					$name = addslashes($_FILES['image']['name']);
 					$image = file_get_contents($image);
 					$image = base64_encode($image);
-					saveimage($name,$image);
+					saveimage($name,$image,$NIC);
 					
 				}
-	}
+			}
+			function saveimage($name,$image,$NIC)
+			{
+				$result = mysql_query("UPDATE patient SET PatientPhoto = '$image' WHERE NIC = '$NIC';");
+				if($result)
+				{
+					echo "<br/> Image Uploaded";
+				}
+				else
+				{
+					echo "<br/> Image not Uploaded";
+				}
 	
-	function saveimage($name,$image)
-	{
-		mysql_query("insert into patient (PatientPhoto) values ('$image');");
-	}
+			}
+	//.............................
+	
 	//update appropriate database table
 	
 	$j=0;
@@ -107,22 +218,13 @@
 		mysql_query("UPDATE `cc`.`Patient` SET `FamilyBackground` = '$familyBackground`' WHERE `NIC` = '$NIC';");
 		return $j;
 	}
-	function insertReport($j,$report,$NIC)
-	{
-		$j++;
-		mysql_query("INSERT INTO `cc`.`reports` (`ReportID`, `DiseaseID`,`Dates`,`Photo`,`patientNIC`) VALUES (null,null,null,'$report','$NIC');");
-		return $j;
-	}
+	
 	if(mysql_affected_rows() == $j){ 	//check whether update is successful or not,
-		/* echo("Update Successfully");
-		sleep(5); */
+		
 		header('Location: Patient home.php');//if successful, will direct in to the patient home page,
-		
 	}
-	else{
-		/* echo("Error Update");
-		sleep(5); */
-		header('Patient home.php');//if not successful, will direct to again in to the patient account setting.php page.
-		
+	else
+	{
+		header('Location: Patient home.php');//if not successful, will direct to again in to the patient account setting.php page.
 	}
 ?>

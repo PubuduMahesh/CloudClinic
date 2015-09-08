@@ -66,29 +66,42 @@
 
 <div class = "relative">
   <?php
-  
+	include_once('../../Control/ConnectionDB.php');
 	$photo = $_SESSION['DoctorPhoto'];
+	$NIC 	= $_SESSION['NIC'];
 	if($photo != null)
 	{
-		echo '<img src="data:image/jpeg;base64,'.base64_encode( $photo ).'"/>'; 
-	}		
+		$result = mysql_query("select DoctorPhoto from doctor where NIC = '$NIC';");
+		while ($row = mysql_fetch_array($result))
+		{
+			echo'<img height="160" width="160" src = "data:image;base64,'.$row['DoctorPhoto'].'">';
+		}
+	}
 	else
 	{
 		?>
-			<img src= "../../View/Doctor/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:160px;height:160px"/> <br><br>
+		<img src= "../../View/Doctor/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:160px;height:160px"/> <br><br>
 		<?php
-	}		
+	}	 
   ?>
 </div>
+
 
 <div class="article"title="you can add your article here.This will help you to improve your Profile status in this system by adding more and more important relevant article ">
 	<font size="5"><font color="yellow">....</font><B>Article</font>
 	<hr>
-<form action="Doctor Account setting DB.php" method="post" enctype="multipart/form-data">
-    Article:<input class="articleChoose"type="file" name="fileToUpload" id="fileToUpload"><br><br>
-	<label><font color="yellow"></font><input type="submit" value="Upload article" name="submit"></label>
-</form>
+<!-- -->
+<form action= "Doctor Account Setting DB.php" method="post" enctype = "multipart/form-data">
+	<br/>
+	 Article:<input class="articleChoose" type = "file" name = "article"/>
+	<br/><br />
+		<input type = "submit" name = "submit" value="upload"/>
+</form>	
+<!-- -->
+
 </div>
+
+
 <div class = "patientSearch" title="You can search the patients who are following you"> 
 	<font size="3"><font color="yellow">....</font><B>Search Patient</font>
 	<hr>

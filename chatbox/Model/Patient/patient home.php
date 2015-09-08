@@ -9,7 +9,7 @@
 	<body background = "../../View/Patient/view/images/patient.jpg"/>
 	
 <div class = "mainMenu">
-	<a class = "link" href = "../../Home.html" style="text-decoration:none;"><font size="4px"><font color="lightblue">..... </font>Home</font></a>
+	<a class = "link" href = "../../Home.html" style="text-decoration:none;"><font size="4px"><font color="lightblue"></font>Home</font></a>
 	<a class = "link" href = "../Doctor/Doctor Home.php" style="text-decoration:none;"> <font size="4px">Doctor Home<font></a><tr>
  </div>
  
@@ -73,9 +73,17 @@
 <div class="relative">
   <?php
 	$photo = $_SESSION['PatientPhoto'];
+	$NIC 	= $_SESSION['NIC'];
 	if($photo != null)
-		echo '<img src="data:image/jpeg;base64,'.base64_encode( $photo ).'"/>'; 
-	else{
+	{
+		$result = mysql_query("select PatientPhoto from patient where NIC = '$NIC';");
+		while ($row = mysql_fetch_array($result))
+		{
+			echo'<img height="160" width="160" src = "data:image;base64,'.$row['PatientPhoto'].'">';
+		}
+	}
+	else
+	{
 		?>
 		<img src= "../../View/Patient/view/images/Profile Picture.jpg" alt = "Mountain View" style = "width:160px;height:160px"/> <br><br>
 		<?php
@@ -87,8 +95,8 @@
 <div class="Report"title="you can add your Report here.">
 	<font size="3"><font color="yellow">....</font><B>Report</font><hr>
 <form action="Patient Account setting DB.php" method="post" enctype="multipart/form-data">
-    <input class="reportChoose"type="file" name="fileToUpload" id="fileToUploadID"><br class = "reportBR"><br>
-	<label><font color="yellow"></font><input type="submit" id = "reportSubmit" value="submit"width ="9px"></label><br><br>	
+	<input class="reportChoose" type = "file" name = "report"/><br /> <br />
+	<input type="submit" name= "submits" value="submit"/><br /><br />	
 </form>
 <a class = "viewReport"href = "view Report DB.php" style="text-decoration:none;"> <font color = "black" size="3px"> View Report <font></a>
 </div>
@@ -119,6 +127,50 @@
 	</html>
 </div>
 
+
+<?php 
+	$username = "kasunchanakamadusanka@gmail.com";
+	$password = "pubudu340ravi";
+	
+	if (!isset($_POST['TPext']) && !isset($_POST['TP'])) 
+	{
+		$TPnumber = '';
+		$TP = '';
+	} 
+	else 
+	{
+		$number =$_POST['TPext'].$_POST['TP'];
+	}
+	if(!isset($_POST['from']))
+	{
+		$from = '';
+	}	
+	else 
+	{
+		$from = $_POST['from'];
+	}
+	if(!isset($_POST['from']))
+	{
+		$message = "";
+	}
+	else
+	{
+		$message  = $_POST['message'];
+	}
+	$vars = "http://txtlocal.com/sendsmspost.php?uname =".$username."&password=".$password."&messages=".$message."&from=".$from."&selectednums=".$TPnumber."&info=1&test=0";
+	
+	if(isset($_POST['submitted']))
+	{
+		$curl = curl_init('http://www.txtlocal.com/sendsmspost.php');
+		curl_setopt($curl,CURLOPT_POST,true);
+		curl_setopt($curl,CURLOPT_POSTFIELDS,$vars);
+		curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+		$result = curl_exec($curl);
+		curl_close($curl);
+		
+		die("SMS has been send.");
+	}
+?>
 
 
 

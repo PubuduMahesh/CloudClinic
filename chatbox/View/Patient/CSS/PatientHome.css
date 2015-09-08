@@ -42,6 +42,7 @@ div.menu .searchButton{
 div.menu .link{
 		position:link;
 		top:60px;
+		padding:10px;
 }
 div.report{
 		position:absolute;
@@ -57,7 +58,6 @@ div.report{
 div.report .reportChoose{
 		position:absolute;
 		left:20px;
-		color: transparent;
 }
 #reportSubmit {
     width: 6.7em;  height: 1.5em;
