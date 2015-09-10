@@ -1,10 +1,12 @@
 <html>
 <head>
+<!-- link to css part of home.html-->
 <link rel="stylesheet" type="text/css" href="View/Home/CSS/Home.css">
 <body bgcolor= "lightgreen"/>
 <div class= "topic">
 	<img src="View/Home/Image/topic.jpg" alt="Mountain View" />
 </div>
+<!-- main menu and css class for this part is link -->
 <div class= "menu">
 	<a class = "link" href = "Model/Doctor/Doctor Home.php" style="text-decoration:none;"><font size="4px"><font color="lightblue">..... </font>Doctor</font></a>
 	<a class = "link" href = "Model/Patient/patient Home.php" style="text-decoration:none;"> <font size="4px"><font color="lightblue">..... </font>Patient<font></a><tr>
@@ -15,9 +17,8 @@
 	<a class = "link" href = "Model/Common/DoctorListDB.php" style="text-decoration:none;"> <font size="4px"><font color="lightblue">..... </font>DoctorList<font></a><tr>
 	
 </div>
-
+<!-- srcipt part for the photo slideshow initialize the image srcs.-->
 <script language="JavaScript">
-<!--
 var image1=new Image()
 image1.src="View/Home/image/SlideShow/image1.jpg"
 var image2=new Image()
@@ -44,17 +45,17 @@ image11.src="View/Home/image/SlideShow/image11.jpg"
 </script>
 </head>
 <body>
+
+<!-- slide show-->
 <div class="slideshow">
 <img src="View/Home/Image/SlideShow/image1.jpg" name="slide" width=550 height=300alt="Mountain View" />
-
-
-
+<!-- slide show operation part -->
 <script>
 
 var step=1
 function slideit()
 {
-if (!document.images)
+if(!document.images)
 return
 document.images.slide.src=eval("image"+step+".src")
 if (step<11)
@@ -78,6 +79,10 @@ slideit()
 		No28/71,Dipo Mawatha, Elpitiya, Srilanka, <br />
 		TP:0710565685<br />
 		  :0778132537<br />
+	</div>
+	<div class = "Excelent">
+		<head class = "head" font= "bold"> <font color = "lightgreen">....................</font><b>Excellent</b></head><br /><br />
+		Deliver the best outcomes and highest quality service through the dedicated effort of every team member.
 	</div>
 </div>
 <!-- -->

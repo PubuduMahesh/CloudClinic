@@ -1,4 +1,4 @@
-w<?php
+<?php
 
 //meka tyenne Doctor home.php eke search button eka click kalam methanata enawa.. ethakota doctorwa follow karala tyena okkama 
 //patientlaga wisthara tika methana table ekaka pennanawa.
@@ -47,7 +47,7 @@ function get_table($doctorNIC)
 		$photo = $product->PatientPhoto;
 		if($photo !=null)
 		{
-			$table_str.='<td width="30">'.($i++).'</td> <td id="'.($i-1).'">'.$NIC.'</td> <td width="60">'.$product->FirstName.'</td> <td>'.$product->Sex.'</td> <td>'.$product->Address.'</td> <td>'.$product->Job.'</td> <td>'.$product->Status.'</td> <td>'.$product->FamilyBackground.'</td><td>'.$product->Email.'</td><td><img src="data:image/jpeg;base64,'.base64_encode( $photo ).'" /></td> <td><button class="clsActionButton" id="idAddButton" onclick="FolloButton('.($i-1).',\''.$doctorNIC.'\');">Give Prescription</button></td>' ;
+			$table_str.='<td width="30">'.($i++).'</td> <td id="'.($i-1).'">'.$NIC.'</td> <td width="60">'.$product->FirstName.'</td> <td>'.$product->Sex.'</td> <td>'.$product->Address.'</td> <td>'.$product->Job.'</td> <td>'.$product->Status.'</td> <td>'.$product->FamilyBackground.'</td><td>'.$product->Email.'</td><td><img height="160" width="160" src = "data:image;base64,'.$photo.'"></td> <td><button class="clsActionButton" id="idAddButton" onclick="FolloButton('.($i-1).',\''.$doctorNIC.'\');">Give Prescription</button></td>' ;
 		}
 		else
 		{

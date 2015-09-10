@@ -10,7 +10,7 @@ function get_products()
 	$products=array();					//create array type variable
 	while($object=mysql_fetch_object($data))//assigning result in to array
 	{
-		$products[]=$object;
+		$products[]=$object;					//assign all fetch restult in to '$product' object and it will return later.
 	}
 	
 	return $products;				//returnt the result in to the get_table function
@@ -71,7 +71,7 @@ function get_table()
 		 </div>
 	</head>
 	<body>
-	<?php echo get_table(); ?>
+	<?php echo get_table(); ?><!--  call to draw table -->
 	</body>
 	
 

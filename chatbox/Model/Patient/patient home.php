@@ -111,13 +111,13 @@
 			<body>
 				<form action = "patient home.php" method = "post" title ="You can emergency contact Doctor here">	
 					Number:<br>
-					<input type = "text" size = "2"name = "TPext" id = "Id_TPext" placeholder= "+94"/> - 
-					<input type = "text" size = "10" name = "TP" id = "Id_TP" placeholder = "Telephone Number"/><br><br>
+					<input type = "text" size = "2"name = "TPext" id = "Id_TPext" placeholder= "+94" required/> - 
+					<input type = "text" size = "10" name = "TP" id = "Id_TP" placeholder = "Telephone Number"required/><br><br>
 				
 					Sender:<br>
-					<input type = "text" name = "from" placeholder= "yourName"/> <br> <br>				
+					<input type = "text" name = "from" placeholder= "yourName"required/> <br> <br>				
 					Message:<br>
-					<textarea name = "message" Placeholder= "message"></textarea>
+					<textarea name = "message" Placeholder= "message"required></textarea>
 					<br><br>
 					<input type= "hidden" name= "submitted" value = "true"/>
 					<input type = "submit" name = "submit" value = "send"/>

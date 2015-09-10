@@ -80,7 +80,7 @@ function get_table()
 		 </div>
 	</head>
 	<body>
-	<?php echo get_table(); ?>
+	<?php echo get_table(); ?>		<!--call to draw table -->
 	</body>
 	
 

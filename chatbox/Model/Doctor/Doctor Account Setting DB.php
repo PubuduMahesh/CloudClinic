@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	session_start();//session start. 
+	//data from the accountsetting from.	
 	$NIC 					= $_SESSION['NIC'];
 	$telephoneNumber 		= $_POST['TP1'];
 	$speciality 	 		= $_POST['speciality'];
@@ -10,19 +11,22 @@
 	$status 		 		= $_POST['status'];
 	$workingExperience  	= $_POST['workingExperience'];
 	$DoctorPhoto 			= $_POST['image'];
+	
+	//create connection with database.
 	include_once('../../Control/ConnectionDB.php');
 	$j=0;
 	
 	//..................Article submit
-	if(isset($_POST['submit']))
+	if(isset($_POST['submit']))//if only article submit button is clicked
 	{
-		$NIC = $_SESSION['NIC'];
-		if(getimagesize($_FILES['article']['tmp_name'])==FALSE)
+		$NIC = $_SESSION['NIC'];//Doctor NIC is assign to the '$NIC' variable
+		if(getimagesize($_FILES['article']['tmp_name'])==FALSE)	//without selecting a Article
 		{
-			echo "please selct an image.";
+			echo "please selct an image.";//message to the user.
 		}
 		else
 		{
+			//if article is submitted well, call to saveimage function.
 			$Article = addslashes($_FILES['article']['tmp_name']);
 			$name = addslashes($_FILES['article']['name']);
 			$Article = file_get_contents($Article);
@@ -31,10 +35,11 @@
 			saveArticle($name,$Article,$NIC,$type);	
 		}
 	}
-	//.................
+	//................. if user try to change the profile picture. 
 	if(isset($_POST['sumit']))
 	{
-		$NIC = $_SESSION['NIC'];
+		$NIC = $_SESSION['NIC'];	//get the doctor NIC value using session variable. 
+		//same thing with the above article submit. 
 		if(getimagesize($_FILES['image']['tmp_name'])==FALSE)
 		{
 			echo "please selct an image.";
@@ -51,9 +56,9 @@
 		}
 	}		
 		
-		function saveimage($name,$image,$NIC,$type)
+		function saveimage($name,$image,$NIC,$type)	//image is saved in database using this function.
 		{
-			$result = mysql_query("UPDATE doctor SET DoctorPhoto = '$image' WHERE NIC = '$NIC';");
+			$result = mysql_query("UPDATE doctor SET DoctorPhoto = '$image' WHERE NIC = '$NIC';");//update query in the doctor photo
 			
 			if($result)
 			{
@@ -81,7 +86,7 @@
 	
 		}		
 	
-	
+	//call to database inserting and updating function under these parts. 
 	if (!isset($_POST['TP1'])) 
 	{
 		$telephoneNumber = '';
